@@ -32,9 +32,25 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    @if (Auth::user())
+                        <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/about">About Blood</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
+                        </ul>
+                    @else
+                        <ul class="navbar-nav mr-auto">
+                        </ul>
+                    @endif
 
-                    </ul>
+                    <!-- <ul class="nav navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/posts">Blog</a></li>
+                    </ul> -->
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -49,24 +65,26 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <li><a href="/dashboard">Dashboard</a></li>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                                <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                        Logout
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
+                                        {{ csrf_field() }}
                                     </form>
-                                </div>
-                            </li>
+                                </li>
+                            </ul>
+                        </li>
                         @endguest
                     </ul>
                 </div>

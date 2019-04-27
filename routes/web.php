@@ -21,6 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard')->middleware('verified');
 Route::get('home', 'PostsController@index')->middleware('verified');
 
+/* Route::get('/contact', function () {
+    return view('contact');
+})->middleware('verified'); */
+
 Route::prefix('admin')->group(function(){
     Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');
@@ -28,3 +32,5 @@ Route::prefix('admin')->group(function(){
 });
 
 Route::resource('posts', 'PostsController');
+
+Route::resource('contact', 'ContactsController');
