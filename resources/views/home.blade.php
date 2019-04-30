@@ -30,12 +30,16 @@
               <div class="card-body">
                 <h3 class="card-title" style="float:left;"><a href="/posts/{{$post->id}}"> {{$post->title}}</a></h3>
 
-                <a href="/posts/{{$post->id}}/edit" class="btn btn-default" style="float:right;">Edit</a>
+                @if (!Auth::guest())
+                  @if(Auth::user()->id == $post->user_id)
+                    {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right', 'style' => 'float:right']) !!}
+                      {{Form::hidden('_method', 'DELETE') }}
+                      {{Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+                    {!!Form::close() !!}
+                    <a href="/posts/{{$post->id}}/edit" class="btn btn-default" style="float:right;">Edit</a>
+                  @endif
+                @endif
 
-                {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right', 'style' => 'float:right']) !!}
-                  {{Form::hidden('_method', 'DELETE') }}
-                  {{Form::submit('Delete', ['class' => 'btn btn-danger']) }}
-                {!!Form::close() !!}
                 <br><br>
                 <small>On {{$post->created_at}} by {{$post->user->name}}</small>
               </div>

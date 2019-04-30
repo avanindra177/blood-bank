@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- <div class="jumbotron">
-        <div class="container">
-            <h1 style="text-align:center;">CONTACT US</h1>
-            <p style="text-align:center;">Email us with any questions or inquiries. We would be happy to answer your questions and set up a meeting with you. We would be glad to help you!</p>
-        </div>
-    </div> -->
-
     <section class="Material-contact-section section-padding section-dark">
       <div class="container">
           <div class="row">
@@ -43,7 +36,7 @@
               <!-- contact form -->
               <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
                   {!!Form::open(['action' => 'ContactsController@store', 'method' => 'POST']) !!}
-                  <!-- <form class="shake" role="form" method="post" action="ContactsController@store" id="contactForm" name="contact-form" data-toggle="validator"> -->
+                    <!-- <form class="shake" role="form" method="post" action="ContactsController@store" id="contactForm" name="contact-form" data-toggle="validator"> -->
                       <!-- Name -->
                       <div class="form-group label-floating">
                         <label class="control-label" for="name">Name</label>
@@ -72,11 +65,6 @@
 
                       {!!Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
 
-                      <!-- <div class="form-submit mt-5">
-                          <button class="btn btn-primary" type="submit" id="form-submit"><i class="material-icons mdi mdi-message-outline"></i> Send Message</button>
-                          <div id="msgSubmit" class="h3 text-center hidden"></div>
-                          <div class="clearfix"></div>
-                      </div> -->
                   {!!Form::close() !!}
                   <!-- </form> -->
               </div>

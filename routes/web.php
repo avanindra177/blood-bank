@@ -19,18 +19,29 @@ Auth::routes(['verify'=>true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard')->middleware('verified');
+
 Route::get('home', 'PostsController@index')->middleware('verified');
 
 /* Route::get('/contact', function () {
     return view('contact');
 })->middleware('verified'); */
 
+// Start of admin routes
 Route::prefix('admin')->group(function(){
     Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
+// end of admin routes
 
+// Post controller routes
 Route::resource('posts', 'PostsController');
 
+// Contact controller routes
 Route::resource('contact', 'ContactsController');
+
+
+// blood center routes
+Route::get('center', 'BloodCenterController@index');
+Route::get('center/new', 'BloodCenterController@addCenter');
+Route::post('center/new', 'BloodCenterController@storeCenter');
