@@ -35,8 +35,11 @@
                     <!-- Left Side Of Navbar -->
                     @if (Auth::user())
                         <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/home">Donors</a></li>
                             <li class="nav-item"><a class="nav-link" href="/about">About Blood</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/request-blood') }}">Request Blood</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/who-needs-blood') }}">Who needs blood?</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/center') }}">Blood Center</a></li>
                             <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
                         </ul>

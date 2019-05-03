@@ -45,3 +45,10 @@ Route::resource('contact', 'ContactsController');
 Route::get('center', 'BloodCenterController@index');
 Route::get('center/new', 'BloodCenterController@addCenter');
 Route::post('center/new', 'BloodCenterController@storeCenter');
+
+
+//blood request routes
+Route::get('request-blood', 'RequestController@index');
+Route::post('request-blood', 'RequestController@store');
+Route::get('who-needs-blood', 'RequestController@show');
+Route::get('request-details/{id}', 'RequestController@requestDetails');
