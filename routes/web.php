@@ -22,6 +22,8 @@ Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard')->middlew
 
 Route::get('home', 'PostsController@index')->middleware('verified');
 
+Route::get('/about', 'HomeController@about')->middleware('verified');
+
 /* Route::get('/contact', function () {
     return view('contact');
 })->middleware('verified'); */
@@ -52,3 +54,8 @@ Route::get('request-blood', 'RequestController@index');
 Route::post('request-blood', 'RequestController@store');
 Route::get('who-needs-blood', 'RequestController@show');
 Route::get('request-details/{id}', 'RequestController@requestDetails');
+
+
+// donor routes
+Route::get('donors', 'HomeController@donors');
+Route::get('donor/{id}', 'HomeController@donorProfile');

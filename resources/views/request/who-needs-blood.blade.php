@@ -1,7 +1,7 @@
 @extends('Layouts.app')
 
 @section('content') 
-<div class="content-fixer">
+<div class="container">
     <!-- <div class="row"> -->
         <!-- <div class="col-md-3">
 

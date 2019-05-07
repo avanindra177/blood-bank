@@ -11,11 +11,15 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('bootstrap.min.js') }}"></script>
 
     <!-- Fonts -->
+    <link href="{{ url('css/font-awesome.css') }}" rel='stylesheet' type='text/css'>
+    <link href="{{ url('css/font-awesome.min.css') }}" rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ url('custom.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
     
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -36,7 +40,7 @@
                     @if (Auth::user())
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/home">Donors</a></li>
+                            <li class="nav-item"><a class="nav-link" href=" {{ url('/donors') }} ">Donors</a></li>
                             <li class="nav-item"><a class="nav-link" href="/about">About Blood</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/request-blood') }}">Request Blood</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/who-needs-blood') }}">Who needs blood?</a></li>
@@ -74,21 +78,21 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
                         @endguest
                     </ul>
                 </div>
@@ -102,4 +106,7 @@
     </div>
 </body>
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script> -->
+
 </html>
