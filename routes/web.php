@@ -32,7 +32,7 @@ Route::get('/about', 'HomeController@about')->middleware('verified');
 Route::prefix('admin')->group(function(){
     Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/', 'AdminController@index');
 });
 // end of admin routes
 
@@ -59,3 +59,24 @@ Route::get('request-details/{id}', 'RequestController@requestDetails');
 // donor routes
 Route::get('donors', 'HomeController@donors');
 Route::get('donor/{id}', 'HomeController@donorProfile');
+
+
+//message routes
+// Route::post('message', 'HomeController@donorMessage');
+// Route::get('messages/{id}', 'HomeController@message');
+
+
+//admin routes
+// Route::get('admin', 'adminController@index');
+
+// // admin user routes
+// Route::get('admin/user/edit/{id}', 'adminController@editUser');
+// Route::post('admin/user/edit/{id}', 'adminController@updateUser');
+// Route::get('admin/delete/user/{id}', 'adminController@deleteUser');
+
+// //admin blood center routes
+// Route::get('admin/center', 'adminController@bloodCentres');
+// Route::get('admin/center/edit/{id}', 'adminController@editCenter');
+// Route::post('admin/center/edit/{id}', 'adminController@updateCenter');
+// Route::get('admin/delete/center/{id}', 'adminController@deleteCenter');
+

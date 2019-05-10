@@ -93,14 +93,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="donor" class="col-md-4 col-form-label text-md-right">{{__('Donor')}}</label>
+                            <label for="is_donor" class="col-md-4 col-form-label text-md-right">{{__('Donor')}}</label>
 
                             <div class="col-md-6">
-                                <select name="donor" type="string" id="donor" class="form-control{{ $errors->has('donor') ? ' is-invalid' : '' }}" name="donor" value="{{ old('donor') }}" required>
+                                <select name="is_donor" type="int" id="is_donor" class="form-control{{ $errors->has('is_donor') ? ' is-invalid' : '' }}" name="is_donor" value="{{ old('is_donor') }}" required>
 
-                                    @if ($errors->has('donor'))
+                                    @if ($errors->has('is_donor'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('donor') }}</strong>
+                                            <strong>{{ $errors->first('is_donor') }}</strong>
                                         </span>
                                     @endif
 

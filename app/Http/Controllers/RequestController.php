@@ -47,7 +47,7 @@ class RequestController extends Controller
         $req->when = $request->input('when');
 
         $req->save();
-        return view('request.request-blood');
+        return redirect('request.who-needs-blood');
     }
 
     /**
