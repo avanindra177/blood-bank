@@ -57,8 +57,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ url('/admin') }}">Users</a></li>
                     <li><a href="{{ url('/admin/center') }}">Blood Centers</a></li>
-                    <li><a href="{{ url('/admin/camps') }}">Camps</a></li>
-                    <li><a href="{{ url('/admin/support') }}">Support</a></li>
+                    <!-- <li><a href="{{ url('/admin/camps') }}">Camps</a></li>
+                    <li><a href="{{ url('/admin/support') }}">Support</a></li> -->
 
                     
                 </ul>

@@ -32,7 +32,7 @@ Route::get('/about', 'HomeController@about')->middleware('verified');
 Route::prefix('admin')->group(function(){
     Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/', 'AdminController@index');
+    Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
 // end of admin routes
 
@@ -70,8 +70,8 @@ Route::get('donor/{id}', 'HomeController@donorProfile');
 // Route::get('admin', 'adminController@index');
 
 // // admin user routes
-// Route::get('admin/user/edit/{id}', 'adminController@editUser');
-// Route::post('admin/user/edit/{id}', 'adminController@updateUser');
+Route::get('admin/user/edit/{id}', 'adminController@editUser');
+Route::post('admin/user/edit/{id}', 'adminController@updateUser');
 // Route::get('admin/delete/user/{id}', 'adminController@deleteUser');
 
 // //admin blood center routes

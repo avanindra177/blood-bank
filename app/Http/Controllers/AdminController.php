@@ -28,27 +28,27 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('auth.admin');
-        // $users = User::paginate(10);
-	 	// return view('admin.index')->with('users', $users);	
+        //return view('auth.admin');
+        $users = User::paginate(10);
+	 	return view('admin.index')->with('users', $users);	
     }
 
     // Users
-    // public function editUser($id)
-	// {
-	//     $user = User::findOrFail($id);
-	//  	return view('admin.edit-user')->with('user', $user);
-	// }
+    public function editUser($id)
+	{
+	    $user = User::findOrFail($id);
+	 	return view('admin.edit-user')->with('user', $user);
+	}
 
-	//  public function updateUser($id)
-	// {
-	//  	$user = User::findOrFail($id);
-	//  	$request = Request::all();
-  	//  	$user->update($request);
-	//  	// Flashy::message('User updated','');
+	public function updateUser($id)
+	{
+	 	$user = User::findOrFail($id);
+	 	$request = Request::all();
+  	 	$user->update($request);
+	 	// Flashy::message('User updated','');
 
-  	//  	return redirect('admin/');	
-    // }
+  	 	return redirect('admin/');	
+    }
     
     // public function deleteUser($id)
 	// {

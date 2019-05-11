@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\User;
 
 class AdminLoginController extends Controller
 {
@@ -39,5 +40,4 @@ class AdminLoginController extends Controller
         return redirect()->back()->withInput($request->only('email', 'remember'));
     }
 
-    
 }
