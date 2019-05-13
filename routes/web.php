@@ -34,7 +34,28 @@ Route::prefix('admin')->group(function(){
     Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
+
+// admin user routes
+Route::get('admin/user/edit/{id}', 'adminController@editUser');
+Route::post('admin/user/edit/{id}', 'adminController@updateUser');
+Route::get('admin/delete/user/{id}', 'adminController@deleteUser');
+
+//admin blood center routes
+Route::get('admin/center', 'adminController@bloodCentres');
+Route::get('admin/center/edit/{id}', 'adminController@editCenter');
+Route::post('admin/center/edit/{id}', 'adminController@updateCenter');
+Route::get('admin/delete/center/{id}', 'adminController@deleteCenter');
+
+//admin posts routes
+Route::get('admin/post', 'adminController@post');
+Route::get('admin/post/edit/{id}', 'adminController@editPost');
+Route::post('admin/post/edit/{id}', 'adminController@updatePost');
+Route::get('admin/delete/post/{id}', 'adminController@deletePost');
+
+//contact message routes
+Route::get('admin/contact', 'adminController@contact');
 // end of admin routes
+
 
 // Post controller routes
 Route::resource('posts', 'PostsController');
@@ -59,24 +80,3 @@ Route::get('request-details/{id}', 'RequestController@requestDetails');
 // donor routes
 Route::get('donors', 'HomeController@donors');
 Route::get('donor/{id}', 'HomeController@donorProfile');
-
-
-//message routes
-// Route::post('message', 'HomeController@donorMessage');
-// Route::get('messages/{id}', 'HomeController@message');
-
-
-//admin routes
-// Route::get('admin', 'adminController@index');
-
-// // admin user routes
-Route::get('admin/user/edit/{id}', 'adminController@editUser');
-Route::post('admin/user/edit/{id}', 'adminController@updateUser');
-// Route::get('admin/delete/user/{id}', 'adminController@deleteUser');
-
-// //admin blood center routes
-// Route::get('admin/center', 'adminController@bloodCentres');
-// Route::get('admin/center/edit/{id}', 'adminController@editCenter');
-// Route::post('admin/center/edit/{id}', 'adminController@updateCenter');
-// Route::get('admin/delete/center/{id}', 'adminController@deleteCenter');
-

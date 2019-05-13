@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Request;
 use App\User;
 use App\BloodCenter;
+use App\Post;
+use App\Contact;
 use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
@@ -50,45 +52,86 @@ class AdminController extends Controller
   	 	return redirect('admin/');	
     }
     
-    // public function deleteUser($id)
-	// {
-	//  	$user = User::findOrFail($id);
-	//  	$user->delete();
+    public function deleteUser($id)
+	{
+	 	$user = User::findOrFail($id);
+	 	$user->delete();
 
-	//  	// Flashy::message('User removed','');
-	//  	return redirect('admin');
-    // }
+	 	// Flashy::message('User removed','');
+	 	return redirect('admin');
+    }
 
 
-    // // Blood Centre
-    // public function bloodCentres()
-	// {
-	//  	$centers = BloodCenter::paginate(10);
-    //     return view('admin.centers')->with('centers', $centers);
-	// }
+    // Blood Centre
+    public function bloodCentres()
+	{
+	 	$centers = BloodCenter::paginate(10);
+        return view('admin.centers')->with('centers', $centers);
+	}
 
-	// public function deleteCenter($id)
-	// {
-	//  	$center = BloodCenter::findOrFail($id);
-	//  	$center->delete();
+	public function deleteCenter($id)
+	{
+	 	$center = BloodCenter::findOrFail($id);
+	 	$center->delete();
 
-	//  	// Flashy::message('Center removed','');
-	//  	return redirect('admin/center');
-	// }
+	 	// Flashy::message('Center removed','');
+	 	return redirect('admin/center');
+	}
 
-	// public function editCenter($id)
-	// {
- 	// 	$center = BloodCenter::findOrFail($id);
- 	// 	return view('admin.edit-center')->with('center', $center);
-	// }
+	public function editCenter($id)
+	{
+ 		$center = BloodCenter::findOrFail($id);
+ 		return view('admin.edit-center')->with('center', $center);
+	}
 
-	// public function updateCenter($id)
-	// {
-	//  	$request = Request::all();
-	//  	$center = BloodCenter::findOrFail($id);
-	//  	$center->update($request);
+	public function updateCenter($id)
+	{
+	 	$request = Request::all();
+	 	$center = BloodCenter::findOrFail($id);
+	 	$center->update($request);
 
-	//  	// Flashy::message('Center updated','');
-	//  	return redirect('admin/center');
-	// }
+	 	// Flashy::message('Center updated','');
+	 	return redirect('admin/center');
+	}
+
+
+	//Posts
+	public function post()
+	{
+	 	$posts = Post::paginate(10);
+        return view('admin.post')->with('posts', $posts);
+	}
+
+	public function editPost($id)
+	{
+ 		$post = Post::findOrFail($id);
+ 		return view('admin.edit-post')->with('post', $post);
+	}
+
+	public function deletePost($id)
+	{
+	 	$post = Post::findOrFail($id);
+	 	$post->delete();
+
+	 	// Flashy::message('Center removed','');
+	 	return redirect('admin/post');
+	}
+
+	public function updatePost($id)
+	{
+	 	$request = Request::all();
+	 	$post = Post::findOrFail($id);
+	 	$post->update($request);
+
+	 	// Flashy::message('Center updated','');
+	 	return redirect('admin/post');
+	}
+
+	//Contact admin
+	public function contact()
+	{
+		// $posts = Post::where('user_id', $id);
+	 	$contacts = Contact::paginate(10);
+        return view('admin.contact')->with('contacts', $contacts);
+	}
 }

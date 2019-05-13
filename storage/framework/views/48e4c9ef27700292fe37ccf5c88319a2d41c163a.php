@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
     <title>Admin Panel</title>
 
     <!-- Fonts -->
-    <link href="{{ url('css/font-awesome.min.css') }}" rel='stylesheet' type='text/css'>
+    <link href="<?php echo e(url('css/font-awesome.min.css')); ?>" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    <link href="{{ url('bootstrap.min.css') }}" rel="stylesheet">
-    <!-- <link href="{{ url('sweetalert.css')}}" rel="stylesheet"> -->
-    <!-- {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}} -->
+    <link href="<?php echo e(url('bootstrap.min.css')); ?>" rel="stylesheet">
+    <!-- <link href="<?php echo e(url('sweetalert.css')); ?>" rel="stylesheet"> -->
+    <!--  -->
 
     <style>
         body {
@@ -41,7 +41,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/admin') }}">
+                <a class="navbar-brand" href="<?php echo e(url('/admin')); ?>">
                     Admin Panel
                 </a>
             </div>
@@ -49,16 +49,16 @@
             <div class="collapse navbar-collapse" id="spark-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <!-- <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/') }}">Frontend</a></li>
+                    <li><a href="<?php echo e(url('/')); ?>">Frontend</a></li>
 
                 </ul> -->
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ url('/admin') }}">Users</a></li>
-                    <li><a href="{{ url('/admin/center') }}">Blood Centers</a></li>
-                    <li><a href="{{ url('/admin/post') }}">Post</a></li>
-                    <li><a href="{{ url('/admin/contact') }}">Contact</a></li>
+                    <li><a href="<?php echo e(url('/admin')); ?>">Users</a></li>
+                    <li><a href="<?php echo e(url('/admin/center')); ?>">Blood Centers</a></li>
+                    <li><a href="<?php echo e(url('/admin/post')); ?>">Post</a></li>
+                    <li><a href="<?php echo e(url('/admin/contact')); ?>">Contact</a></li>
 
                     
                 </ul>
@@ -67,10 +67,10 @@
     </nav>
 
 <div class="container">
-    @yield('content')
+    <?php echo $__env->yieldContent('content'); ?>
 </div>
     <!-- JavaScripts -->
-    <script src="{{ url('jquery.js') }}"></script>
-    <script src="{{ url('bootstrap.min.js') }}"></script>
+    <script src="<?php echo e(url('jquery.js')); ?>"></script>
+    <script src="<?php echo e(url('bootstrap.min.js')); ?>"></script>
 </body>
 </html>

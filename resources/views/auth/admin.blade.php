@@ -49,10 +49,10 @@
                          @endif
                     </td>
 
-                    <!-- <td> 
+                    <td> 
                         <a href="{{ url('admin/user/edit/'.$user->id) }}" class="btn btn-default"><i class="fa fa-edit"></i> Edit</a> 
                         <a href="{{ url('admin/delete/user/'.$user->id) }}" class="btn btn-default"><i class="fa fa-trash"></i> Delete</a> 
-                    </td> -->
+                    </td>
                 </tr>
             @endforeach
         </table>
