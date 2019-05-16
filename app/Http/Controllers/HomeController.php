@@ -6,7 +6,9 @@ namespace App\Http\Controllers;
 use Request;
 use App\User;
 use App\Post;
+use DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller
 {
@@ -47,9 +49,13 @@ class HomeController extends Controller
         $input = Request::all();
         $conditions = [ 'is_donor' => '1' ];
 
-        if(isset($input['blood']))      $conditions = array_add($conditions, 'blood', $input['blood']);
+        if(isset($input['group']))        $conditions = array_add($conditions, 'blood', $input['group']);
 
-        $users = User::where($conditions)->paginate(9);
+         $users = User::where($conditions)->paginate(9);
+
+        // $users = User::where('blood','like','%'.$input.'%')
+        // ->paginate(9);
+        // return view('donors', compact('users'));
         return view('donors')->with('users', $users);
     }
 

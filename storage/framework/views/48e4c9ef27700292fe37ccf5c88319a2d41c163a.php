@@ -59,8 +59,7 @@
                     <li><a href="<?php echo e(url('/admin/center')); ?>">Blood Centers</a></li>
                     <li><a href="<?php echo e(url('/admin/post')); ?>">Post</a></li>
                     <li><a href="<?php echo e(url('/admin/contact')); ?>">Contact</a></li>
-
-                    
+                    <!-- <li><a href="<?php echo e(url('/admin/logout')); ?>">Logout</a></li> -->
                 </ul>
             </div>
         </div>

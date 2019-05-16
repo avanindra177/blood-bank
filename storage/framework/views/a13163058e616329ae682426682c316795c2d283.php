@@ -38,7 +38,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <?php if(Auth::user()): ?>
+                    <?php if(Auth::user() or Auth::admin()): ?>
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href=" <?php echo e(url('/donors')); ?> ">Donors</a></li>

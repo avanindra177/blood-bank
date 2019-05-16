@@ -52,7 +52,7 @@
           <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class= "card" style="margin-top:5px;">
               <div class="card-body">
-                <h3 class="card-title" style="float:left;"><a href="/posts/<?php echo e($post->id); ?>"> <?php echo e($post->title); ?></a></h3>
+                <h3 class="card-title" style="float:left;"><a href="/posts/<?php echo e($post->id); ?>"> <?php echo e($post->user->name); ?></a></h3>
 
                 <?php if(!Auth::guest()): ?>
                   <?php if(Auth::user()->id == $post->user_id): ?>
@@ -69,7 +69,11 @@
                 <?php endif; ?>
 
                 <br><br>
-                <small>On <?php echo e($post->created_at); ?> by <?php echo e($post->user->name); ?></small>
+
+                <hr>
+                <h5 class="card-title"> <?php echo e($post->title); ?> </h5><br>
+                <p class="card-text"><?php echo e($post->body); ?></p>
+                <small>On <?php echo e($post->created_at); ?></small>
               </div>
             </div>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

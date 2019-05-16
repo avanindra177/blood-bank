@@ -5,11 +5,11 @@
         <div class="row">
             <div class = "col-md-8 col-md-offset-2"  style="margin:0 auto;">
                 <div class= "panel panel-default">
-                    <div class = "panel-heading">
+                    <div class = "panel-heading" style="height:70px">
                         <h1 style="float:left;">Dashboard </h1>
                         <a href="/posts/create" class = "btn btn-primary" style="float:right;">Create Post</a>
                     </div>
-                    <br><br><br>
+                    <br>
 
                     <div class="panel-body">
                         <h3>Your Posts</h3>

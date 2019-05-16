@@ -1,6 +1,4 @@
-@extends('Layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="container">
         <div class="row">
 
@@ -41,34 +39,36 @@
 
 
     <div class="row" style="margin:0 auto;">
-        @foreach($users as $user)
+        <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         
             <div class="col-md-4">
 
                 <div class="thumbnail">
                     <div class="caption">
-                        <h3><a href="{{ url('donor/'.$user->id) }}"> {{ ucfirst($user->name) }} </a> 
+                        <h3><a href="<?php echo e(url('donor/'.$user->id)); ?>"> <?php echo e(ucfirst($user->name)); ?> </a> 
                         </h3>
 
                         <ul class="list-group">
-                            <li class="list-group-item">Blood Group : {{ $user->blood }}ve </li>
-                            <li class="list-group-item">City : {{ $user->city }}</li>
-                            <li class="list-group-item">Address : {{ $user->address }}</li>
-                            <li class="list-group-item">Mobile : {{ $user->phone }}</li>
-                            <li class="list-group-item">Email : {{ $user->email }}</li>
-                            <li class="list-group-item">Last Donated : {{  date('F d, Y h:m A', strtotime($user->last_donated)) }}</li> 
+                            <li class="list-group-item">Blood Group : <?php echo e($user->blood); ?>ve </li>
+                            <li class="list-group-item">City : <?php echo e($user->city); ?></li>
+                            <li class="list-group-item">Address : <?php echo e($user->address); ?></li>
+                            <li class="list-group-item">Mobile : <?php echo e($user->phone); ?></li>
+                            <li class="list-group-item">Email : <?php echo e($user->email); ?></li>
+                            <li class="list-group-item">Last Donated : <?php echo e(date('F d, Y h:m A', strtotime($user->last_donated))); ?></li> 
                         </ul>
                     </div>
                 </div>
             </div>
     
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
 
-    @if (count($users) == 0)
+    <?php if(count($users) == 0): ?>
     <div class="alert alert-info">Sorry !! Currently there is no donors matching your result.</div>
-    @endif
+    <?php endif; ?>
 
-    {{ $users->render() }}
+    <?php echo e($users->render()); ?>
+
     </div>
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

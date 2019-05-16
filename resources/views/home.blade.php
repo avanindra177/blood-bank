@@ -54,7 +54,7 @@
           @foreach($posts as $post)
             <div class= "card" style="margin-top:5px;">
               <div class="card-body">
-                <h3 class="card-title" style="float:left;"><a href="/posts/{{$post->id}}"> {{$post->title}}</a></h3>
+                <h3 class="card-title" style="float:left;"><a href="/posts/{{$post->id}}"> {{$post->user->name}}</a></h3>
 
                 @if (!Auth::guest())
                   @if(Auth::user()->id == $post->user_id)
@@ -67,7 +67,11 @@
                 @endif
 
                 <br><br>
-                <small>On {{$post->created_at}} by {{$post->user->name}}</small>
+
+                <hr>
+                <h5 class="card-title"> {{$post->title}} </h5><br>
+                <p class="card-text">{{$post->body}}</p>
+                <small>On {{$post->created_at}}</small>
               </div>
             </div>
           @endforeach
