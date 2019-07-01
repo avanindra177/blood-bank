@@ -25,32 +25,29 @@
               <td>{{  date('F d, Y h:m A', strtotime($user->updated_at)) }}</td>
               <td>@if ( $user->is_donor == 1 )
               Yes
-              @else 
+              @else    
               No
               @endif</td>
               <td> 
 
               <a href="{{ url('admin/user/edit/'.$user->id) }}" class="btn btn-default"><i class="fa fa-edit"></i> Edit</a> 
-        
+              <a href="{{ url('admin/delete/user/'.$user->id) }}" class="btn btn-default"><i class="fa fa-trash"></i> Delete</a> 
             @if ($user->id != Auth::user()->id )
 
-              @if ($user->is_admin != 1)
+              <!-- @if ($user->is_admin != 1)
               <a href="{{ url('admin/make/admin/'.$user->id) }}" class="btn btn-default"><i class="fa fa-user-plus"></i> Make Admin</a>   
               @else
                             <a href="{{ url('admin/remove/admin/'.$user->id) }}" class="btn btn-default"><i class="fa fa-user-times"></i> Remove Admin</a>   
 
-              @endif
-              <a href="{{ url('admin/delete/user/'.$user->id) }}" class="btn btn-default"><i class="fa fa-trash"></i> Delete</a> 
+              @endif -->
+              <!-- <a href="{{ url('admin/delete/user/'.$user->id) }}" class="btn btn-default"><i class="fa fa-trash"></i> Delete</a>  -->
                           
-              @endif
+            @endif
 
               </td>
           </tr>
       @endforeach
 
-
-
-      
       </table>
 
 

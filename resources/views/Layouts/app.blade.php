@@ -37,7 +37,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    @if (Auth::user() or Auth::admin())
+                    @if (Auth::user())
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href=" {{ url('/donors') }} ">Donors</a></li>

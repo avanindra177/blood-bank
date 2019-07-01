@@ -23,32 +23,29 @@
               <td><?php echo e(date('F d, Y h:m A', strtotime($user->updated_at))); ?></td>
               <td><?php if( $user->is_donor == 1 ): ?>
               Yes
-              <?php else: ?> 
+              <?php else: ?>    
               No
               <?php endif; ?></td>
               <td> 
 
               <a href="<?php echo e(url('admin/user/edit/'.$user->id)); ?>" class="btn btn-default"><i class="fa fa-edit"></i> Edit</a> 
-        
+              <a href="<?php echo e(url('admin/delete/user/'.$user->id)); ?>" class="btn btn-default"><i class="fa fa-trash"></i> Delete</a> 
             <?php if($user->id != Auth::user()->id ): ?>
 
-              <?php if($user->is_admin != 1): ?>
+              <!-- <?php if($user->is_admin != 1): ?>
               <a href="<?php echo e(url('admin/make/admin/'.$user->id)); ?>" class="btn btn-default"><i class="fa fa-user-plus"></i> Make Admin</a>   
               <?php else: ?>
                             <a href="<?php echo e(url('admin/remove/admin/'.$user->id)); ?>" class="btn btn-default"><i class="fa fa-user-times"></i> Remove Admin</a>   
 
-              <?php endif; ?>
-              <a href="<?php echo e(url('admin/delete/user/'.$user->id)); ?>" class="btn btn-default"><i class="fa fa-trash"></i> Delete</a> 
+              <?php endif; ?> -->
+              <!-- <a href="<?php echo e(url('admin/delete/user/'.$user->id)); ?>" class="btn btn-default"><i class="fa fa-trash"></i> Delete</a>  -->
                           
-              <?php endif; ?>
+            <?php endif; ?>
 
               </td>
           </tr>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-
-
-      
       </table>
 
 

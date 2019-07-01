@@ -64,7 +64,7 @@
     </div>
 
     <?php if(count($users) == 0): ?>
-    <div class="alert alert-info">Sorry !! Currently there is no donors matching your result.</div>
+        <div class="alert alert-info">Sorry !! Currently there is no donors matching your result.</div>
     <?php endif; ?>
 
     <?php echo e($users->render()); ?>

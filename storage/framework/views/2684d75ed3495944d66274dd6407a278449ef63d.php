@@ -1,6 +1,4 @@
-@extends('Layouts.app')
-
-@section('content') 
+<?php $__env->startSection('content'); ?> 
 <div class="container">
     <!-- <div class="row"> -->
         <!-- <div class="col-md-3">
@@ -52,22 +50,24 @@
         <div class="panel-heading">Who Needs Blood ?</div>
             <div class="panel-body">
 
-                @foreach($requests as $request )
+                <?php $__currentLoopData = $requests; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $request): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="thumbnail">
                         <div class="panel-content">
-                            <h3> <a href="{{ url('request-details/'.$request->id) }}"> {{  ucfirst($request->patient) }} - {{ $request->group }}ve </a> </h3>
+                            <h3> <a href="<?php echo e(url('request-details/'.$request->id)); ?>"> <?php echo e(ucfirst($request->patient)); ?> - <?php echo e($request->group); ?>ve </a> </h3>
 
                             <ul class="list-group">
-                                <li class="list-group-item">Blood Group : {{ $request->group }}ve </li> 
-                                <li class="list-group-item">City : {{ $request->city }} </li> 
-                                <li class="list-group-item">Address : {{ $request->location }} </li>
+                                <li class="list-group-item">Blood Group : <?php echo e($request->group); ?>ve </li> 
+                                <li class="list-group-item">City : <?php echo e($request->city); ?> </li> 
+                                <li class="list-group-item">Address : <?php echo e($request->location); ?> </li>
                             </ul> 
                         </div>
                     </div>
                 <br>
-               @endforeach
+               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
  
             </div>
         </div>
     </div> 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('Layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

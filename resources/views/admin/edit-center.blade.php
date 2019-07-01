@@ -13,7 +13,7 @@
  
  <div class="form-group">
                           Name                 
-                   <input type="text" name="name" class="form-control" placeholder="Name" value="{{ $center->state }}">
+                   <input type="text" name="name" class="form-control" placeholder="Name" value="{{ $center->name }}">
             </div>
 
 
@@ -24,10 +24,10 @@
 
 
 
- <div class="form-group">
+              <!-- <div class="form-group">
                           State                 
                    <input type="text" name="state" class="form-control" placeholder="State" value="{{ $center->state }}">
-            </div>
+            </div> -->
 
  <div class="form-group">
                           District                 

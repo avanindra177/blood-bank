@@ -66,7 +66,7 @@
     </div>
 
     @if (count($users) == 0)
-    <div class="alert alert-info">Sorry !! Currently there is no donors matching your result.</div>
+        <div class="alert alert-info">Sorry !! Currently there is no donors matching your result.</div>
     @endif
 
     {{ $users->render() }}
